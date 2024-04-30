@@ -10,6 +10,20 @@ return {
         desc = "Find Plugin File",
       },
     },
+    config = function()
+      local action = require("telescope.actions")
+
+      require("telescope").setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-j>"] = action.move_selection_next,
+              ["<C-k>"] = action.move_selection_previous,
+            },
+          },
+        },
+      })
+    end,
   },
   {
     "telescope.nvim",

@@ -66,3 +66,33 @@ end)
 keymap.set("n", "<leader>i", function()
   require("craftzdog.lsp").toggleInlayHints()
 end)
+
+keymap.set("n", "<C-i>", "<C-I>", opts)
+
+-- go setting
+-- Navigation commands
+keymap.set("n", "<leader>ds", "<plug>(go-def-split)", opts)
+keymap.set("n", "<leader>dv", "<plug>(go-def-vertical)", opts)
+
+-- Alternate commands
+keymap.set("n", "<leader>ae", "<plug>(go-alternate-edit)", opts)
+keymap.set("n", "<leader>av", "<plug>(go-alternate-vertical)", opts)
+keymap.set("n", "<leader>aa", ":GoAlternate!<CR>", opts)
+
+-- Common Go commands
+-- vim.cmd([[ au FileType go nmap <leader>ct :GoCoverageToggle<CR> ]])
+-- vim.cmd([[ au FileType go nmap <leader>c :GoCoverage<CR> ]])
+-- vim.cmd([[ au FileType go nmap <leader>t :GoTestFunc<CR> ]])
+-- vim.cmd([[ au FileType go nmap <leader><S-t> :GoTestFile<CR> ]])
+-- vim.cmd([[ au FileType go nmap gie <plug>(go-iferr) ]])
+--
+keymap.set("n", "gfs", "<plug>(go-fill-struct)", opts)
+keymap.set("n", "gat", "<plug>(go-add-tags)", opts)
+
+-- LSP commands
+keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+keymap.set("n", "<leader>r", ":LspRestart<CR>", opts)

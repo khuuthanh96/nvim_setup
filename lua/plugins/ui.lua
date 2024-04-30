@@ -15,17 +15,6 @@ return {
     end,
   },
 
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    -- opts = {
-    --   options = {
-    --     theme = "gruvbox",
-    --   },
-    -- },
-  },
-
   -- buffer line
   {
     "akinsho/bufferline.nvim",

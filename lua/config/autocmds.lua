@@ -12,3 +12,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.conceallevel = 0
   end,
 })
+
+-- Turn off multi-colors when highlighting yank
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   pattern = "*",
+--   callback = function()
+--     vim.cmd([[hi! Visual cterm=reverse gui=reverse]])
+--   end,
+-- })

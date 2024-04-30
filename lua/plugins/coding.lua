@@ -1,9 +1,24 @@
 return {
   {
-    "nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
     end,
+  },
+
+  {
+    -- go extension
+    "fatih/vim-go",
+    "AndrewRadev/splitjoin.vim",
+    "fatih/gomodifytags",
+    {
+      "stevearc/conform.nvim",
+      optional = true,
+      opts = {
+        formatters_by_ft = {
+          go = { "goimports", "gofumpt" },
+        },
+      },
+    },
   },
 }

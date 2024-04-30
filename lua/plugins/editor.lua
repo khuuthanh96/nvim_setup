@@ -1,35 +1,65 @@
 return {
-  {
-    "echasnovski/mini.hipatterns",
-    event = "BufReadPre",
-    opts = {
-      highlighters = {
-        hsl_color = {
-          pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
-          group = function(_, match)
-            local utils = require("solarized-osaka.hsl")
-            --- @type string, string, string
-            local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
-            --- @type number?, number?, number?
-            local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
-            --- @type string
-            local hex_color = utils.hslToHex(h, s, l)
-            return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
-          end,
-        },
-      },
-    },
-  },
-  {
-    "dinhhuy258/git.nvim",
-    event = "BufReadPre",
-    opts = {
-      keymaps = {
-        -- Open blame window
-        blame = "<Leader>gb",
-        -- Open file/folder in git repository
-        browse = "<Leader>go",
-      },
-    },
-  },
+  -- {
+  --   "dinhhuy258/git.nvim",
+  --   event = "BufReadPre",
+  --   opts = {
+  --     keymaps = {
+  --       -- Open blame window
+  --       blame = "<Leader>gb",
+  --       -- Open file/folder in git repository
+  --       browse = "<Leader>go",
+  --     },
+  --   },
+  -- },
+  -- project management
+  -- {
+  --   "coffebar/neovim-project",
+  --   opts = {
+  --     projects = { -- define project roots
+  --       "~/src/*",
+  --       "~/.config/*",
+  --     },
+  --     last_session_on_startup = false,
+  --     dashboard_mode = true,
+  --   },
+  --   init = function()
+  --     -- enable saving the state of plugins in the session
+  --     vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+  --   end,
+  --   dependencies = {
+  --     { "nvim-lua/plenary.nvim" },
+  --     { "nvim-telescope/telescope.nvim" },
+  --     -- { "Shatur/neovim-session-manager" },
+  --   },
+  --   priority = 100,
+  -- },
+  -- {
+  --   "Shatur/neovim-session-manager",
+  --   config = function(_, opts)
+  --     local config = require("session_manager.config")
+  --     opts.autoload_mode = config.AutoloadMode.CurrentDir
+  --     require("session_manager").setup(opts)
+  --   end,
+  -- },
+  -- {
+  --   "folke/persistence.nvim",
+  --   enabled = false,
+  -- },
+  -- {
+  --   "nvimdev/dashboard-nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     local projects = {
+  --       action = "Telescope neovim-project discover",
+  --       desc = " Projects",
+  --       icon = " ",
+  --       key = "p",
+  --     }
+  --
+  --     projects.desc = projects.desc .. string.rep(" ", 43 - #projects.desc)
+  --     projects.key_format = "  %s"
+  --
+  --     table.insert(opts.config.center, 3, projects)
+  --   end,
+  -- },
 }

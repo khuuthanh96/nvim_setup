@@ -209,4 +209,34 @@ return {
       },
     },
   },
+  {
+    "stevearc/conform.nvim",
+    ft = { "go" },
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        go = { "gofumpt", "goimports-reviser", "gci" },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    enabled = true,
+    ft = { "go" },
+    opts = function(_, opts)
+      -- local linters = require("lint").linters
+      --
+      -- linters.golangcilint.args = use_golangci_config_if_available(linters)
+      --
+      -- local linters_by_ft = {
+      --   go = { "golangcilint" },
+      -- }
+      --
+      -- -- extend opts.linters_by_ft
+      -- for ft, linters_ in pairs(linters_by_ft) do
+      --   opts.linters_by_ft[ft] = opts.linters_by_ft[ft] or {}
+      --   vim.list_extend(opts.linters_by_ft[ft], linters_)
+      -- end
+    end,
+  },
 }
