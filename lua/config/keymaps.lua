@@ -29,9 +29,6 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
 keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
--- Jumplist
-keymap.set("n", "<C-m>", "<C-i>", opts)
-
 -- New tab
 keymap.set("n", "te", ":tabedit")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
@@ -67,8 +64,6 @@ keymap.set("n", "<leader>i", function()
   require("craftzdog.lsp").toggleInlayHints()
 end)
 
-keymap.set("n", "<C-i>", "<C-I>", opts)
-
 -- go setting
 -- Navigation commands
 keymap.set("n", "<leader>ds", "<plug>(go-def-split)", opts)
@@ -96,3 +91,10 @@ keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 keymap.set("n", "<leader>r", ":LspRestart<CR>", opts)
+
+-- Tmux new session
+keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", opts)
+
+-- Fix jumplist by unmaping <Tab>
+vim.api.nvim_del_keymap("n", "<Tab>")
+vim.api.nvim_del_keymap("i", "<Tab>")

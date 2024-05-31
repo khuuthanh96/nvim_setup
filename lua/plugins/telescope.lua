@@ -19,6 +19,7 @@ return {
             i = {
               ["<C-j>"] = action.move_selection_next,
               ["<C-k>"] = action.move_selection_previous,
+              ["<C-d>"] = action.delete_buffer,
             },
           },
         },

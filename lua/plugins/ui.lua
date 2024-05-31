@@ -12,6 +12,7 @@ return {
       })
 
       opts.presets.lsp_doc_border = true
+      opts.presets.long_message_to_split = true
     end,
   },
 
@@ -43,8 +44,8 @@ return {
       require("incline").setup({
         highlight = {
           groups = {
-            InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
-            InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
+            InclineNormal = { guifg = colors.yellow300, guibg = colors.base03 },
+            InclineNormalNC = { guifg = colors.yellow500, guibg = colors.base04 },
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },
@@ -53,12 +54,16 @@ return {
         },
         render = function(props)
           local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          if vim.bo[props.buf].modified then
+          local modified = vim.bo[props.buf].modified
+
+          if filename == "" then
+            filename = "[No Name]"
+          elseif vim.bo[props.buf].modified then
             filename = "[+] " .. filename
           end
 
           local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
+          return { { icon, guifg = color }, { " " }, { filename, gui = modified and "italic" or "" } }
         end,
       })
     end,
