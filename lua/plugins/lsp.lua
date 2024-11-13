@@ -17,6 +17,7 @@ return {
         "gofumpt",
         "gomodifytags",
         "impl",
+        "codespell",
       })
     end,
   },
@@ -29,6 +30,7 @@ return {
       ---@type lspconfig.options
       servers = {
         cssls = {},
+        codespell = {},
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12

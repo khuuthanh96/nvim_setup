@@ -1,65 +1,21 @@
 return {
-  -- {
-  --   "dinhhuy258/git.nvim",
-  --   event = "BufReadPre",
-  --   opts = {
-  --     keymaps = {
-  --       -- Open blame window
-  --       blame = "<Leader>gb",
-  --       -- Open file/folder in git repository
-  --       browse = "<Leader>go",
-  --     },
-  --   },
-  -- },
-  -- project management
-  -- {
-  --   "coffebar/neovim-project",
-  --   opts = {
-  --     projects = { -- define project roots
-  --       "~/src/*",
-  --       "~/.config/*",
-  --     },
-  --     last_session_on_startup = false,
-  --     dashboard_mode = true,
-  --   },
-  --   init = function()
-  --     -- enable saving the state of plugins in the session
-  --     vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
-  --   end,
-  --   dependencies = {
-  --     { "nvim-lua/plenary.nvim" },
-  --     { "nvim-telescope/telescope.nvim" },
-  --     -- { "Shatur/neovim-session-manager" },
-  --   },
-  --   priority = 100,
-  -- },
-  -- {
-  --   "Shatur/neovim-session-manager",
-  --   config = function(_, opts)
-  --     local config = require("session_manager.config")
-  --     opts.autoload_mode = config.AutoloadMode.CurrentDir
-  --     require("session_manager").setup(opts)
-  --   end,
-  -- },
-  -- {
-  --   "folke/persistence.nvim",
-  --   enabled = false,
-  -- },
-  -- {
-  --   "nvimdev/dashboard-nvim",
-  --   optional = true,
-  --   opts = function(_, opts)
-  --     local projects = {
-  --       action = "Telescope neovim-project discover",
-  --       desc = " Projects",
-  --       icon = " ",
-  --       key = "p",
-  --     }
-  --
-  --     projects.desc = projects.desc .. string.rep(" ", 43 - #projects.desc)
-  --     projects.key_format = "  %s"
-  --
-  --     table.insert(opts.config.center, 3, projects)
-  --   end,
-  -- },
+  {
+    "cameron-wags/rainbow_csv.nvim",
+    config = true,
+    ft = {
+      "csv",
+      "tsv",
+      "csv_semicolon",
+      "csv_whitespace",
+      "csv_pipe",
+      "rfc_csv",
+      "rfc_semicolon",
+    },
+    cmd = {
+      "RainbowDelim",
+      "RainbowDelimSimple",
+      "RainbowDelimQuoted",
+      "RainbowMultiDelim",
+    },
+  },
 }
