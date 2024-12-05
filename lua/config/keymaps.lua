@@ -39,11 +39,6 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")
@@ -53,8 +48,8 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- go setting
 -- Navigation commands
-keymap.set("n", "<leader>ds", "<plug>(go-def-split)", opts)
-keymap.set("n", "<leader>dv", "<plug>(go-def-vertical)", opts)
+keymap.set("n", "<leader>gd", "<plug>(go-def-vertical)", opts)
+keymap.set("n", "<leader>gD", "<plug>(go-def-split)", opts)
 
 -- Alternate commands
 keymap.set("n", "<leader>ae", "<plug>(go-alternate-edit)", opts)
